@@ -33,9 +33,6 @@
     <ClCompile Include="Globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,6 +45,9 @@
     <ClCompile Include="Ball.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Globals.h">
@@ -59,9 +59,6 @@
     <ClInclude Include="Breakout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -70,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="Ball.h">
       <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

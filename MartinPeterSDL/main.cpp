@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
   g_GameWindow->Close();
   delete g_GameWindow;
 
-  system("PAUSE");
+  //system("PAUSE");
 
   return 0;
 }
