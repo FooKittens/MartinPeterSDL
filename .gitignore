@@ -13,3 +13,14 @@
 *.a
 /*.opensdf
 /MartinPeterSDL.sdf
+/MartinPeterSDL/Debug/*.pdb
+/MartinPeterSDL/Debug/*.tlog
+/MartinPeterSDL/Debug/*.log
+/MartinPeterSDL/Debug/*.manifest
+/MartinPeterSDL/Debug/*.lastbuildstate
+/Debug/MartinPeterSDL.ilk
+/Debug/*.exe
+/Debug/*.pdb
+/ipch/martinpetersdl-10ccc04d/*.ipch
+/MartinPeterSDL/Debug/*.idb
+/MartinPeterSDL/Debug/*.obj
