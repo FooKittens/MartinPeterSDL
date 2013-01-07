@@ -22,15 +22,17 @@ struct Vector2
 };
 
 // Vector2 addition
-const Vector2& operator+(const Vector2& v1, const Vector2& v2);
+const Vector2 operator+(const Vector2& v1, const Vector2& v2);
+
+void operator+=(Vector2& v1, const Vector2& v2);
 
 // Vector2 subtraction
-const Vector2& operator-(const Vector2& v1, const Vector2& v2);
+const Vector2 operator-(const Vector2& v1, const Vector2& v2);
 
 // Dot product
 const float Dot(const Vector2& v1, const Vector2& v2);
 
 // Scalar multiplication
-const Vector2& operator*(const Vector2& v, const float scalar);
+const Vector2 operator*(const Vector2& v, const float scalar);
 
 #endif

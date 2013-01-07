@@ -4,6 +4,8 @@
 struct SDL_Rect;
 struct Vector2;
 struct GameObject;
+
+class Ball;
 class Input;
 
 class Breakout
@@ -20,10 +22,9 @@ public:
 protected:
 
 private:
-  void MoveBall();
-  void MovePaddle();
-
   Input* inputManager;
+
+  Ball* myBall;
 
   const int PaddleWidth;
   const int PaddleHeight;
