@@ -8,8 +8,11 @@
 
 SDL_Surface* g_Buffer = NULL;
 
-const int g_ScreenWidth = 800;
-const int g_ScreenHeight = 600;
-const int g_BitDepth = 32;
-const int g_DelayTime = 16;
+// Window Settings
+const int g_kScreenWidth = 800;
+const int g_kScreenHeight = 600;
+const int g_kBitDepth = 32;
+
+
+const int g_kDelayTime = 16;
 #endif

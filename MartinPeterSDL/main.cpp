@@ -7,6 +7,7 @@ SDL_Event myEvent;
 
 int Init();
 int FlipAndClear();
+int CleanUp();
 
 int main(int argc, char* argv[])
 {
@@ -40,8 +41,7 @@ int main(int argc, char* argv[])
 
     
 
-    SDL_Delay(16);
-    
+    SDL_Delay(g_DelayTime);
   }
 
   SDL_FreeSurface(buffer);
@@ -70,6 +70,11 @@ int Init()
 
 int FlipAndClear()
 {
-  SDL_Flip(buffer);
+  SDL_Flip(g_Buffer);
   SDL_FillRect(buffer, NULL, 0);
+}
+
+int CleanUp()
+{
+  SDL_FreeSurface(g_Buffer);
 }
