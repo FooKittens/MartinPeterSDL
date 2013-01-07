@@ -13,6 +13,9 @@
 *.a
 /*.opensdf
 /*.filters
+/*.vcxproj.filters
+/MartinPeterSDL/*.vcxproj.filters
+/MartinPeterSDL/*.filters
 /MartinPeterSDL.sdf
 /MartinPeterSDL/Debug/*.pdb
 /MartinPeterSDL/Debug/*.tlog
@@ -26,3 +29,4 @@
 /MartinPeterSDL/Debug/*.idb
 /MartinPeterSDL/Debug/*.obj
 /MartinPeterSDL/Debug/*.unsuccessfulbuild
+/MartinPeterSDL/*.filters
