@@ -5,6 +5,10 @@
 
 #define NULL 0
 
+typedef int Color;
+
+// Set to true on game launch.
+bool g_ApplicationRunning = false;
 
 SDL_Surface* g_Buffer = NULL;
 

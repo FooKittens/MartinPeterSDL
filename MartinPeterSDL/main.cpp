@@ -1,51 +1,31 @@
 #include <iostream>
 #include "SDL.h"
 #include "Globals.h"
-SDL_Surface* buffer = NULL;
-
-SDL_Event myEvent;
 
 int Init();
 int FlipAndClear();
 int CleanUp();
 
+typedef int Color;
+
 int main(int argc, char* argv[])
 {
-  bool running = true;
-
-  int x = 64;
-
-  while(running)
+  if(Init())
   {
-    
-    SDL_Rect rect = {x, 64, 64, 64};
-    SDL_FillRect(buffer, &rect, 0xFF0000); 
+    printf("Error in initialize!");
+  }
 
-    Uint8* keys = SDL_GetKeyState(NULL);
-    if(keys[SDLK_x])
+  while(g_ApplicationRunning)
+  {
+    if(FlipAndClear())
     {
-        x += 4;
+      // TODO(Peter): Handle issues clearing the backbuffer.
     }
-
-    while(SDL_PollEvent(&myEvent))
-    {
-      if(myEvent.type == SDL_QUIT)
-      {
-        running = false;
-      }
-      else if(myEvent.key.keysym.sym == SDLK_ESCAPE)
-      {
-        running = false;
-      }
-    }
-
-    
 
     SDL_Delay(g_kDelayTime);
   }
 
-  SDL_FreeSurface(buffer);
-  SDL_Quit();
+  CleanUp();
 
   return 0;
 }
@@ -53,21 +33,28 @@ int main(int argc, char* argv[])
 int Init()
 {
   SDL_Init(SDL_INIT_EVERYTHING);
-  buffer = SDL_SetVideoMode(
+  g_Buffer = SDL_SetVideoMode(
     g_kScreenWidth,
     g_kScreenHeight,
     g_kBitDepth,
     SDL_SWSURFACE
   );
 
-  if(buffer == NULL)
+  if(g_Buffer == NULL)
   {
     return 1;
   }
 
+  SDL_WM_SetCaption("P&M Breakout!", NULL);
+
+  // Set to true so the main loop starts.
+  g_ApplicationRunning = true;
+
   return 0;
 }
 
+/* Flips the backbuffer and clears
+ * the buffer with g_kClearColor. */
 int FlipAndClear()
 {
   if(SDL_Flip(g_Buffer))
@@ -75,11 +62,15 @@ int FlipAndClear()
     return 1;
   }
   
-  SDL_FillRect(buffer, NULL, 0);
+  SDL_FillRect(g_Buffer, NULL, g_kClearColor);
+  
   return 0;
 }
 
 int CleanUp()
 {
   SDL_FreeSurface(g_Buffer);
+  SDL_Quit();
+
+  return 0;
 }
