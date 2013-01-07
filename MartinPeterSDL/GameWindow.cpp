@@ -11,7 +11,7 @@ GameWindow::GameWindow(int width, int height, int bitdepth)
 
 int GameWindow::Init()
 {
-  SDL_Init(SDL_INIT_EVERYTHING);
+  SDL_Init(SDL_INIT_VIDEO);
   backBuffer = SDL_SetVideoMode(width, height, bitdepth, SDL_SWSURFACE);
 
   if(backBuffer == NULL)

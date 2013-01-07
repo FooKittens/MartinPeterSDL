@@ -20,6 +20,7 @@ public:
 
   int Clear(Color color);
 
+  // For drawing rectangles to the game window.
   int FillRectangle(SDL_Rect& rect, Color color);
   int FillRectangle(int x, int y, int width, int height, Color color);
 
@@ -40,6 +41,7 @@ private:
   int width;
   int height;
   int bitdepth;
+  // This is the windows surface we'll draw to
   SDL_Surface* backBuffer;
 };
 
