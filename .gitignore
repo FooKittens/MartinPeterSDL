@@ -12,6 +12,7 @@
 *.la
 *.a
 /*.opensdf
+/*.filters
 /MartinPeterSDL.sdf
 /MartinPeterSDL/Debug/*.pdb
 /MartinPeterSDL/Debug/*.tlog
