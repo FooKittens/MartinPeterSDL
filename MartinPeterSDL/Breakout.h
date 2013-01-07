@@ -2,7 +2,11 @@
 #define BREAKOUT_H
 
 struct SDL_Rect;
+struct Vector2;
+class Input;
+
 typedef SDL_Rect Ball;
+typedef SDL_Rect Paddle;
 
 class Breakout
 {
@@ -19,6 +23,12 @@ protected:
 
 private:
   Ball* ball;
+  Paddle* paddle;
+  Input* inputManager;
 
+  const int PaddleWidth;
+  const int PaddleHeight;
+  const int BallWidth;
+  const int BallHeight;
 };
 #endif

@@ -34,6 +34,8 @@ int main(int argc, char* argv[])
   g_GameWindow->Close();
   delete g_GameWindow;
 
+  system("PAUSE");
+
   return 0;
 }
 
@@ -55,6 +57,8 @@ int Run()
 
     SDL_Delay(g_kDelayTime);
   }
+
+  delete game;
 
   return 0;
 }
