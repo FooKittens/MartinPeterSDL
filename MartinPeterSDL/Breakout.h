@@ -22,11 +22,14 @@ public:
 protected:
 
 private:
+  void MoveBall();
+  void MovePaddle();
+
   Ball* ball;
   Paddle* paddle;
   Input* inputManager;
-  Vector2 ballPos;
-  Vector2 paddlePos;
+  Vector2* ballPos;
+  Vector2* paddlePos;
 
   const int PaddleWidth;
   const int PaddleHeight;

@@ -20,14 +20,14 @@ Breakout::Breakout()
 
 
   paddle = new SDL_Rect;
-  paddle->x = g_GameWindow->Width() / 2 - PaddleWidth / 2;
-  paddle->y = g_GameWindow->Height() - PaddleHeight - 30;
+  paddle->x = 0;
+  paddle->y = 0;
   paddle->w = PaddleWidth;
   paddle->h = PaddleHeight;
 
   ball = new SDL_Rect;
-  ball->x = paddle->x + PaddleWidth / 2 - BallWidth / 2;
-  ball->y = paddle->y - BallHeight;
+  ball->x = 0;
+  ball->y = 0;
   ball->w = BallWidth;
   ball->h = BallHeight;
 
@@ -43,11 +43,16 @@ int Breakout::Update()
     g_ApplicationRunning = false;
   }
 
+  
+  ball->x = (int)(ballPos->x - BallWidth / 2);
+  ball->y = (int)(ballPos->y - BallHeight / 2);
+
   return 0;
 }
 
 int Breakout::Draw()
 {
+
   g_GameWindow->FillRectangle(*ball, 0xFF0000);
   g_GameWindow->FillRectangle(*paddle, 0x882288);
   return 0;

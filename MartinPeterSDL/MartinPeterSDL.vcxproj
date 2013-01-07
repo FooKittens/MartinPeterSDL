@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aduck.cpp" />
     <ClCompile Include="Breakout.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Globals.cpp" />
