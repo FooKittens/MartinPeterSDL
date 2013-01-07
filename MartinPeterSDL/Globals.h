@@ -1,26 +1,23 @@
-#include "include\SDL.h"
-
 #ifndef GLOBALS_H
 #define GLOBALS_H
+#include "include\SDL.h"
 
-#define NULL 0
+class GameWindow;
 
 typedef int Color;
 
-// Set to true on game launch.
-bool g_ApplicationRunning = false;
+GameWindow* g_GameWindow = NULL;
 
-SDL_Surface* g_Buffer = NULL;
+// True while application is running
+bool g_ApplicationRunning = false;
 
 // Window Settings
 const int g_kScreenWidth = 800;
 const int g_kScreenHeight = 600;
 const int g_kBitDepth = 32;
 
-
 const int g_kDelayTime = 16;
+const Color g_ClearColor = 0;
 
-// For clearing the backbuffer {Black}
-const int g_kClearColor = 0;
 
 #endif

@@ -1,5 +1,5 @@
-#include "GameWindow.h"
 #include "include\SDL.h"
+#include "GameWindow.h"
 
 // Constructor
 GameWindow::GameWindow(int width, int height, int bitdepth)
@@ -35,5 +35,46 @@ int GameWindow::Flip()
 
 int GameWindow::Clear(Color color)
 {
-  SDL_FillRect(g_Buffer, NULL, color);
+  if(SDL_FillRect(backBuffer, NULL, color))
+  {
+    return 1;
+  }
+
+  return 0;
+}
+
+int GameWindow::FillRectangle(SDL_Rect& rect, Color color)
+{
+  if(SDL_FillRect(backBuffer, &rect, color))
+  {
+    return 1;
+  }
+
+  return 0;
+}
+
+int GameWindow::FillRectangle(int x, int y, int width, int height, Color color)
+{
+  SDL_Rect rect = { x, y, width, height };
+  if(SDL_FillRect(backBuffer, &rect, color))
+  {
+    return 1;
+  }
+
+  return 0;
+}
+
+int GameWindow::Close()
+{
+  SDL_FreeSurface(backBuffer);
+
+  SDL_Quit();
+
+  return 0;
+}
+
+GameWindow::~GameWindow()
+{
+  Close();
+  printf("GameWindow Closed!");
 }

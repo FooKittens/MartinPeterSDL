@@ -1,15 +1,14 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
-#include "Globals.h"
-
 // Forward declaration = There will be such a struct.
 struct SDL_Surface;
+
+typedef int Color;
 
 class GameWindow
 {
 public:
-
   //Ctor
   GameWindow(const int width, int height, int bitdepth);
 
@@ -21,8 +20,17 @@ public:
 
   int Clear(Color color);
 
-  int Width() const;
-  int Height() const;
+  int FillRectangle(SDL_Rect& rect, Color color);
+  int FillRectangle(int x, int y, int width, int height, Color color);
+
+  #pragma region Accessors
+
+  inline const int Width() const { return width; }
+  inline const int Height() const { return height; }
+  
+  #pragma endregion
+
+  int Close();
 
   // Dtor
   ~GameWindow();

@@ -1,76 +1,54 @@
 #include <iostream>
 #include "SDL.h"
 #include "Globals.h"
+#include "GameWindow.h"
 
-int Init();
-int FlipAndClear();
-int CleanUp();
-
-typedef int Color;
+int Run();
 
 int main(int argc, char* argv[])
 {
-  if(Init())
-  {
-    printf("Error in initialize!");
-  }
-
-  while(g_ApplicationRunning)
-  {
-    if(FlipAndClear())
-    {
-      // TODO(Peter): Handle issues clearing the backbuffer.
-    }
-
-    SDL_Delay(g_kDelayTime);
-  }
-
-  CleanUp();
-
-  return 0;
-}
-
-int Init()
-{
-  SDL_Init(SDL_INIT_EVERYTHING);
-  g_Buffer = SDL_SetVideoMode(
+  g_GameWindow = new GameWindow(
     g_kScreenWidth,
     g_kScreenHeight,
-    g_kBitDepth,
-    SDL_SWSURFACE
+    g_kBitDepth
   );
 
-  if(g_Buffer == NULL)
+  if(g_GameWindow->Init())
   {
-    return 1;
+    printf("GameWindow Init failed. Closing program.");
   }
 
-  SDL_WM_SetCaption("P&M Breakout!", NULL);
-
-  // Set to true so the main loop starts.
   g_ApplicationRunning = true;
 
-  return 0;
-}
-
-/* Flips the backbuffer and clears
- * the buffer with g_kClearColor. */
-int FlipAndClear()
-{
-  if(SDL_Flip(g_Buffer))
+  if(Run())
   {
-    return 1;
+    printf("Application closed unexpectedly.");
+  }
+  else
+  {
+
   }
   
-  SDL_FillRect(g_Buffer, NULL, g_kClearColor);
-  
+  // Close the window and clean up its memory.
+  g_GameWindow->Close();
+  delete g_GameWindow;
+
   return 0;
 }
 
-int CleanUp()
+// Main loop runs in this function.
+int Run()
 {
-  SDL_FreeSurface(g_Buffer);
-  SDL_Quit();
+  while(g_ApplicationRunning)
+  {
+    g_GameWindow->Clear(g_ClearColor);
+
+    // TODO: Add Drawing and logic
+
+    // Flip back buffer of game window - Think spritebatch.end()
+    g_GameWindow->Flip();
+  }
 
   return 0;
 }
+
