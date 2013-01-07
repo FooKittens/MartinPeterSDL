@@ -12,10 +12,6 @@
 *.la
 *.a
 /*.opensdf
-/*.filters
-/*.vcxproj.filters
-/MartinPeterSDL/*.vcxproj.filters
-/MartinPeterSDL/*.filters
 /MartinPeterSDL.sdf
 /MartinPeterSDL/Debug/*.pdb
 /MartinPeterSDL/Debug/*.tlog

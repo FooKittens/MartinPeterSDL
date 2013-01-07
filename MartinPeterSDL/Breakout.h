@@ -3,10 +3,8 @@
 
 struct SDL_Rect;
 struct Vector2;
+struct GameObject;
 class Input;
-
-typedef SDL_Rect Ball;
-typedef SDL_Rect Paddle;
 
 class Breakout
 {
@@ -25,11 +23,9 @@ private:
   void MoveBall();
   void MovePaddle();
 
-  Ball* ball;
-  Paddle* paddle;
+  GameObject* ball;
+  GameObject* paddle;
   Input* inputManager;
-  Vector2* ballPos;
-  Vector2* paddlePos;
 
   const int PaddleWidth;
   const int PaddleHeight;
