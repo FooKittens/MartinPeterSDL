@@ -15,4 +15,8 @@ const int g_kBitDepth = 32;
 
 
 const int g_kDelayTime = 16;
+
+// For clearing the backbuffer {Black}
+const int g_kClearColor = 0;
+
 #endif

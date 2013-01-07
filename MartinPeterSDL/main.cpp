@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 
     
 
-    SDL_Delay(g_DelayTime);
+    SDL_Delay(g_kDelayTime);
   }
 
   SDL_FreeSurface(buffer);
@@ -54,9 +54,9 @@ int Init()
 {
   SDL_Init(SDL_INIT_EVERYTHING);
   buffer = SDL_SetVideoMode(
-    g_ScreenWidth,
-    g_ScreenHeight,
-    g_BitDepth,
+    g_kScreenWidth,
+    g_kScreenHeight,
+    g_kBitDepth,
     SDL_SWSURFACE
   );
 
@@ -70,8 +70,13 @@ int Init()
 
 int FlipAndClear()
 {
-  SDL_Flip(g_Buffer);
+  if(SDL_Flip(g_Buffer))
+  {
+    return 1;
+  }
+  
   SDL_FillRect(buffer, NULL, 0);
+  return 0;
 }
 
 int CleanUp()
