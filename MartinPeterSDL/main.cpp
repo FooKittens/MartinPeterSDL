@@ -1,7 +1,8 @@
 #include <iostream>
 #include "SDL.h"
-#include "Globals.h"
 #include "GameWindow.h"
+#include "Breakout.h"
+#include "Globals.h"
 
 int Run();
 
@@ -39,14 +40,20 @@ int main(int argc, char* argv[])
 // Main loop runs in this function.
 int Run()
 {
+  Breakout* game = new Breakout();
+
   while(g_ApplicationRunning)
   {
     g_GameWindow->Clear(g_ClearColor);
 
-    // TODO: Add Drawing and logic
+    game->Update();
+
+    game->Draw();
 
     // Flip back buffer of game window - Think spritebatch.end()
     g_GameWindow->Flip();
+
+    SDL_Delay(g_kDelayTime);
   }
 
   return 0;
