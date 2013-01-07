@@ -21,21 +21,24 @@
     <ClCompile Include="GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Breakout.cpp">
+    <ClCompile Include="Update.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Globals.cpp">
+    <ClCompile Include="Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="GameWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Breakout.h">
+    <ClInclude Include="Update.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Globals.h">
+    <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
