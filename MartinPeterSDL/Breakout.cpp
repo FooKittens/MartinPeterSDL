@@ -10,6 +10,15 @@ Breakout::Breakout()
   :PaddleWidth(75), PaddleHeight(25),
    BallWidth(10), BallHeight(10)
 {
+  ballPos = new Vector2;
+  ballPos->x = g_GameWindow->Width() / 2;
+  ballPos->y = g_GameWindow->Height() - PaddleHeight - 30;
+
+  paddlePos = new Vector2;
+  paddlePos->x = g_GameWindow->Width() / 2;
+  paddlePos->y = g_GameWindow->Height() - PaddleHeight - 30;
+
+
   paddle = new SDL_Rect;
   paddle->x = g_GameWindow->Width() / 2 - PaddleWidth / 2;
   paddle->y = g_GameWindow->Height() - PaddleHeight - 30;

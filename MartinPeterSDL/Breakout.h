@@ -25,6 +25,8 @@ private:
   Ball* ball;
   Paddle* paddle;
   Input* inputManager;
+  Vector2 ballPos;
+  Vector2 paddlePos;
 
   const int PaddleWidth;
   const int PaddleHeight;
