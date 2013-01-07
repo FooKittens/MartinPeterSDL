@@ -3,6 +3,20 @@
 
 struct Vector2
 {
+  Vector2(float x, float y)
+  {
+    this->x = x;
+    this->y = y;
+  }
+
+  Vector2(const Vector2& v)
+  {
+    this->x = v.x;
+    this->y = v.y;
+  }
+
+  Vector2() { x = 0; y = 0; }
+
   float x;
   float y;
 };

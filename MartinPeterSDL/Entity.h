@@ -17,6 +17,8 @@ public:
   // Draws the game object
   int virtual Draw(GameWindow* window) = 0;
 
+  // Virtual Dtor
+  virtual ~Entity();
 protected:
   Vector2 position;
   SDL_Rect rect;

@@ -23,8 +23,6 @@ private:
   void MoveBall();
   void MovePaddle();
 
-  GameObject* ball;
-  GameObject* paddle;
   Input* inputManager;
 
   const int PaddleWidth;

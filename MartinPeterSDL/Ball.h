@@ -2,6 +2,8 @@
 #define BALL_H
 #include "Entity.h"
 
+typedef int Color;
+
 class Ball : Entity
 {
 public:
@@ -15,7 +17,12 @@ public:
 protected:
 
 private:
+  // Moves the ball
+  void Move();
 
+  Color ballColor;
+  Vector2 direction;
+  float ballSpeed;
 };
 
 

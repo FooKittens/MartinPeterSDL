@@ -1,5 +1,5 @@
-#include "include\SDL.h"
 #include "GameWindow.h"
+#include "include\SDL.h"
 
 // Constructor
 GameWindow::GameWindow(int width, int height, int bitdepth)
@@ -43,9 +43,9 @@ int GameWindow::Clear(Color color)
   return 0;
 }
 
-int GameWindow::FillRectangle(SDL_Rect& rect, Color color)
+int GameWindow::FillRectangle(SDL_Rect* rect, Color color)
 {
-  if(SDL_FillRect(backBuffer, &rect, color))
+  if(SDL_FillRect(backBuffer, rect, color))
   {
     return 1;
   }

@@ -47,6 +47,5 @@ void Breakout::MovePaddle()
 
 Breakout::~Breakout()
 {
-  delete ball;
   delete inputManager;
 }

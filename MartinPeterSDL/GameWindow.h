@@ -3,6 +3,7 @@
 
 // Forward declaration = There will be such a struct.
 struct SDL_Surface;
+struct SDL_Rect;
 
 typedef int Color;
 
@@ -21,7 +22,7 @@ public:
   int Clear(Color color);
 
   // For drawing rectangles to the game window.
-  int FillRectangle(SDL_Rect& rect, Color color);
+  int FillRectangle(SDL_Rect* rect, Color color);
   int FillRectangle(int x, int y, int width, int height, Color color);
 
   #pragma region Accessors
