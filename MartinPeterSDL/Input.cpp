@@ -1,24 +1,28 @@
 #include "SDL.h"
 #include "Input.h"
 
-class
+void Input::Update()
 {
-  Uint8* keyboardState;
-  Uint8* previousKeyboardState;
+  previousKeyboardState = keyboardState;
+  
+  keyboardState = SDL_GetKeyState(NULL);
+  
+}
 
-  const int Pressed = 0;
-
-  void Update()
+bool Input::KeyDown(SDLKey key)
+{
+  if (keyboardState[key])
   {
-    keyboardState = SDL_GetKeyState(NULL);
+    return true;
   }
+  return false;
+}
 
-  bool KeyDown(SDLKey key)
+bool Input::KeyNewDown(SDLKey key)
+{
+  if (keyboardState[key] && !previousKeyboardState[key])
   {
-    if (keyboardState[key])
-    {
-      return true;
-    }
-    return false;
+    return true;
   }
+  return false;
 }
