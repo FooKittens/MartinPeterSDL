@@ -66,7 +66,11 @@ int GameWindow::FillRectangle(int x, int y, int width, int height, Color color)
 
 int GameWindow::Close()
 {
-  SDL_FreeSurface(backBuffer);
+  if (backBuffer != NULL)
+  {
+    SDL_FreeSurface(backBuffer);
+    backBuffer = NULL;
+  }
 
   SDL_Quit();
 
