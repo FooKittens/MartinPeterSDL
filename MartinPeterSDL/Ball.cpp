@@ -7,12 +7,12 @@
 Ball::Ball(const Vector2& position, const SDL_Rect& rect)
   :Entity(position, rect)
 {
-  ballSpeed = 3.0f;
+  ballSpeed = 0.125f;
   ballColor = 0xFF0000;
   direction = Vector2(1, -1);
 }
 
-int Ball::Update()
+int Ball::Update(double deltaTime)
 {
 
   if(position.x <= 0 || position.x >= g_kScreenWidth)
@@ -24,7 +24,7 @@ int Ball::Update()
     direction.y = -direction.y;
   }
 
-  Vector2 offset = direction * ballSpeed;
+  Vector2 offset = direction * ballSpeed * deltaTime;
 
   position += offset;
 

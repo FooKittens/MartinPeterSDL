@@ -10,7 +10,7 @@ public:
   // Constructor
   Ball(const Vector2& position, const SDL_Rect& rect);
 
-  int virtual Update();
+  int virtual Update(double deltaTime);
 
   int virtual Draw(GameWindow* window);
 

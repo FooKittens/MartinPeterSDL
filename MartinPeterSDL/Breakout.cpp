@@ -32,7 +32,7 @@ Breakout::Breakout()
   paddleRect.h = PaddleHeight;
 }
 
-int Breakout::Update()
+int Breakout::Update(double deltaTime)
 {
   inputManager->Update();
 
@@ -41,7 +41,7 @@ int Breakout::Update()
     g_ApplicationRunning = false;
   }
 
-  myBall->Update();
+  myBall->Update(deltaTime);
 
 
   return 0;

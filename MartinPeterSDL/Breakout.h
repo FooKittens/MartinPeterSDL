@@ -14,7 +14,7 @@ public:
   // Constructor
   Breakout();
 
-  int Update();
+  int Update(double deltaTime);
   int Draw();
 
   // Destructor

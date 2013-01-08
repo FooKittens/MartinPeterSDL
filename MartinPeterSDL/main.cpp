@@ -1,8 +1,11 @@
 #include <iostream>
+#include <Windows.h>
 #include "SDL.h"
 #include "GameWindow.h"
 #include "Breakout.h"
 #include "Globals.h"
+
+typedef LARGE_INTEGER BigInt;
 
 int Run();
 
@@ -44,18 +47,46 @@ int Run()
 {
   Breakout* game = new Breakout();
 
+
+  // Some variables to help achieve microsecond precision on timing.
+  LARGE_INTEGER startTicks;
+  LARGE_INTEGER currentTicks;
+  LARGE_INTEGER liFreq;
+  QueryPerformanceFrequency(&liFreq);
+  double delay = 1000.0 / 60;
+  double frequency = (double)liFreq.QuadPart;
+  double loopTime;
+  double ticks;
+  double delta;
+
+  QueryPerformanceCounter(&startTicks);
+
   while(g_ApplicationRunning)
   {
+    loopTime = 0;
+    currentTicks = startTicks;
+    QueryPerformanceCounter(&startTicks);
+
     g_GameWindow->Clear(g_ClearColor);
 
-    game->Update();
+    delta = (double)(startTicks.QuadPart - currentTicks.QuadPart) *
+      1000.0 / frequency;
+
+    game->Update(delta);
 
     game->Draw();
 
     // Flip back buffer of game window - Think spritebatch.end()
     g_GameWindow->Flip();
 
-    SDL_Delay(g_kDelayTime);
+    // Loop until our desired delay has been reached.
+    while(loopTime <= delay)
+    {
+      QueryPerformanceCounter(&currentTicks);
+      ticks = (double)(currentTicks.QuadPart - startTicks.QuadPart);
+      loopTime = ticks * 1000.0 / frequency;
+    }
+   
   }
 
   delete game;

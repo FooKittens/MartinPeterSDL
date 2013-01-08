@@ -12,7 +12,7 @@ public:
   Entity(const Vector2& position, const SDL_Rect& rect);
 
   // Updates the game object
-  int virtual Update() = 0;
+  int virtual Update(double deltaTime) = 0;
 
   // Draws the game object
   int virtual Draw(GameWindow* window) = 0;
