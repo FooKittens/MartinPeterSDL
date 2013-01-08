@@ -1,3 +1,4 @@
+#include <cmath>
 #include "GameWindow.h"
 #include "Ball.h"
 #include "include\SDL.h"
@@ -14,7 +15,6 @@ Ball::Ball(const Vector2& position, const SDL_Rect& rect)
 
 int Ball::Update(double deltaTime)
 {
-
   if(position.x <= 0 || position.x >= g_kScreenWidth)
   {
     direction.x = -direction.x;
@@ -24,9 +24,7 @@ int Ball::Update(double deltaTime)
     direction.y = -direction.y;
   }
 
-  Vector2 offset = direction * ballSpeed * deltaTime;
-
-  position += offset;
+  position += direction * ballSpeed * deltaTime;
 
 
   return 0;
@@ -34,8 +32,8 @@ int Ball::Update(double deltaTime)
 
 int Ball::Draw(GameWindow* window)
 {
-  rect.x = (int)position.x - 5;
-  rect.y = (int)position.y - 5;
+  rect.x = (int)(position.x + 0.5) - 5;
+  rect.y = (int)(position.y + 0.5) - 5;
   rect.w = 10;
   rect.h = 10;
   window->FillRectangle(&rect, ballColor);

@@ -53,7 +53,7 @@ int Run()
   LARGE_INTEGER currentTicks;
   LARGE_INTEGER liFreq;
   QueryPerformanceFrequency(&liFreq);
-  double delay = 1000.0 / 60;
+  double delay = 1000.0 / 60.0;
   double frequency = (double)liFreq.QuadPart;
   double loopTime;
   double ticks;
@@ -80,7 +80,7 @@ int Run()
     g_GameWindow->Flip();
 
     // Loop until our desired delay has been reached.
-    while(loopTime <= delay)
+    while(loopTime < delay)
     {
       QueryPerformanceCounter(&currentTicks);
       ticks = (double)(currentTicks.QuadPart - startTicks.QuadPart);
